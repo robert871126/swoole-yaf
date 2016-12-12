@@ -30,6 +30,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
         Yaf\Loader::import(APPLICATION_PATH . 'Core/Controller.php');
         Yaf\Loader::import('Core/Model.php');
         Yaf\Loader::import(APPLICATION_PATH . DS . 'common' . DS . 'functions.php');
+        Yaf\Loader::import(APPLICATION_PATH . DS . 'common' . DS . 'F_filter.php');
     }
 
     /**

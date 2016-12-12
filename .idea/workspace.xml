@@ -2,8 +2,62 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3e756c8-dbcc-405f-8191-ea7de524588f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/plugins/Autoload.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/common/emoji.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/Base.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Api/Category.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Category.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Curl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/Common.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/Config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/Image.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Core/MimeTypes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Core/OssException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Core/OssUtil.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Http/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Http/RequestCore.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Http/RequestCore_Exception.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Http/ResponseCore.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/BucketInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/BucketListInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/CorsConfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/CorsRule.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/LifecycleAction.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/LifecycleConfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/LifecycleRule.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/ListMultipartUploadInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/ListPartsInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/LoggingConfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/ObjectInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/ObjectListInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/PartInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/PrefixInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/RefererConfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/UploadInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/WebsiteConfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Model/XmlConfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/OssClient.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/AclResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/BodyResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/ExistResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/GetCorsResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/GetLifecycleResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/GetLoggingResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/GetRefererResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/GetWebsiteResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/HeaderResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/InitiateMultipartUploadResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/ListBucketsResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/ListMultipartUploadResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/ListObjectsResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/ListPartsResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/PutSetDeleteResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/Result.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/OSS/Result/UploadPartResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/Object.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/library/Util/Upload/autoload.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Bootstrap.php" afterPath="$PROJECT_DIR$/application/Bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/User.php" afterPath="$PROJECT_DIR$/application/models/User.php" />
     </list>
     <ignored path="swoole-yaf.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +89,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+            <state relative-caret-position="95">
+              <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bootstrap.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="F_filter.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/common/F_filter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -62,12 +146,10 @@
         <option value="$USER_HOME$/Downloads/yaf-master/tools/cg/output/Sample/conf/application.ini" />
         <option value="$PROJECT_DIR$/application/library/Core/Model.php" />
         <option value="$PROJECT_DIR$/application/models/UserModel.php" />
-        <option value="$PROJECT_DIR$/application/models/User.php" />
         <option value="$PROJECT_DIR$/application/library/Core/Cache.php" />
         <option value="$PROJECT_DIR$/application/library/Core/Cache/Driver/Redis.php" />
         <option value="$PROJECT_DIR$/application/library/Core/Cache/Driver/Xcache.php" />
         <option value="$PROJECT_DIR$/application/library/Core/Cache/Driver/File.php" />
-        <option value="$PROJECT_DIR$/application/Bootstrap.php" />
         <option value="$PROJECT_DIR$/application/library/Core/Log/Driver/File.php" />
         <option value="$PROJECT_DIR$/application/library/Core/Exception.php" />
         <option value="$PROJECT_DIR$/application/library/Core/Log.php" />
@@ -80,6 +162,8 @@
         <option value="$PROJECT_DIR$/logs/Index/16_12_12.log" />
         <option value="$PROJECT_DIR$/conf/application.ini" />
         <option value="$PROJECT_DIR$/application/controllers/Index.php" />
+        <option value="$PROJECT_DIR$/application/models/User.php" />
+        <option value="$PROJECT_DIR$/application/Bootstrap.php" />
       </list>
     </option>
   </component>
@@ -163,108 +247,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conf" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swoole-yaf" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -323,18 +305,18 @@
       <updated>1481177168729</updated>
       <workItem from="1481177169986" duration="12370000" />
       <workItem from="1481245742166" duration="5346000" />
-      <workItem from="1481332202553" duration="38809000" />
+      <workItem from="1481332202553" duration="39505000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56525000" />
+    <option name="totallyTimeSpent" value="57221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1436" height="877" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2630058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2630058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -369,22 +351,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/zys-master/application/modules/Admin/controllers/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7193">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/zys-master/application/controllers/Weixin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/work/淘宝应用/member/conf/application.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -485,14 +451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -652,14 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/zys-master/application/library/db/Db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-12585">
@@ -668,22 +618,6 @@
             <marker date="1479833968000" expanded="true" signature="25338:25407" ph="INSERT INTO ${$this-&gt;parseTable($table)}... " />
             <marker date="1479833968000" expanded="true" signature="26657:26669" ph="DELETE FROM " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/plugins/Autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -781,8 +715,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="95">
+          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/plugins/Autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1588">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/library/Api/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/F_filter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding />
         </state>
       </provider>

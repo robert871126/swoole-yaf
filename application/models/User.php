@@ -8,9 +8,6 @@
  */
 class UserModel extends Core\Model
 {
-    public function getUserInfo(){
-        return M('User')->find();
-    }
 }
 
 ?>
