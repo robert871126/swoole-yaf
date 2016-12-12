@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<title>微校邦-资讯管理</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="/statics/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+	<link href="/statics/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+	<link href="/statics/css/animate.min.css" rel="stylesheet">
+	<link href="/statics/css/style.min.css?v=4.0.0" rel="stylesheet">
+	<link href="/statics/css/custom.css" rel="stylesheet">
+
+	<script src="/statics/js/jquery.min.js?v=2.1.4"></script>
+	<script src="/statics/js/common.js"></script>
+	<script src="/statics/js/plugins/layer/laytpl/laytpl.js"></script>
+	<script src="/statics/js/plugins/layer/laypage/laypage.js"></script>
+	<script src="/statics/js/jquery.linkagesel.js"></script>
+</head>
+
+<body class="gray-bg">
+	<div class="wrapper wrapper-content  animated fadeInRight blog">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="search-box">
+					<div class="search-box-left">
+						<div class="input-group">
+	                        <input type="text" class="form-control" name="keywords"> <span class="input-group-btn"> <button type="button" class="btn btn-primary search">搜索
+	                        </button> </span>
+	                    </div>
+						<select class="form-control" name="userType">
+							<option value="-1">发送对象</option>
+	                        <option value="0">全部</option>
+	                        <option value="1">教师</option>
+	                        <option value="2">学生</option>
+	                    </select>
+	                    <select class="form-control" name="isAudit">
+	                        <option value="-1">状态</option>
+	                        <option value="1">已发布</option>
+	                        <option value="0">未发布</option>
+	                    </select>
+	                    <select name="" id="brandLinkSelect" class="form-control"></select>
+						<input type="hidden" name="cate_id" value="">
+						<button class="btn btn-primary" id="search-btn">搜索</button>
+					</div>
+					<div class="search-box-right">
+						<a href="/html-article-add.html" class="btn btn-primary J_menuItem">添加文章</a>
+					</div>
+				</div>
+				<div class="ibox">
+					<div class="ibox-content">
+						<table class="table table-bordered table-striped table-hover">
+							<thead>
+								<tr>
+									<th width="30"><input type="checkbox"  class="i-checks" id="checkAll" name="input[]"></th>
+									<th>标题</th>
+									<th>自定义属性</th>
+									<th nowrap="nowrap">所属栏目</th>
+									<th nowrap="nowrap">权重</th>
+									<th nowrap="nowrap">接收对象</th>
+									<th nowrap="nowrap">点赞</th>
+									<th nowrap="nowrap">评论</th>
+									<th nowrap="nowrap">发布时间</th>
+									<th nowrap="nowrap">发布状态</th>
+									<th nowrap="nowrap">推送</th>
+									<th nowrap="nowrap">操作</th>
+								</tr>
+							</thead>
+							<tbody id="listBox">
+								<tr>
+									<td colspan="8">
+										<div class="loading"></div>
+									</td>
+								</tr>
+							</tbody>
+							<script type="html/text" id="artList">
+								{{# for(var i = 0, len = d.list.length; i < len; i++){ }}
+								    <tr>
+										<td>
+											<input type="checkbox" class="i-checks" name="checkbox" value="{{ d.list[i].info_id }}">
+										</td>
+										<td><a href="/html-article-detail.html?id={{ d.list[i].info_id }}" class="J_menuItem">{{ d.list[i].title }}</a></td>
+										<td>{{ d.list[i].attr_name }}</td>
+										<td>{{ d.list[i].cate_name }}</td>
+										<td>{{ d.list[i].sort }}</td>
+										<td nowrap="nowrap">{{ d.list[i].user_type==0?'全部': (d.list[i].user_type==1?'教师':'学生') }}</td>
+										<td nowrap="nowrap">{{ d.list[i].like_count }}</td>
+										<td nowrap="nowrap">{{ d.list[i].comment_count }}</td>
+										<td nowrap="nowrap">{{ d.list[i].create_time }}</td>
+										<td nowrap="nowrap">{{ d.list[i].is_audit==0?'未发布':'已发布' }}</td>
+										<td nowrap="nowrap">{{ d.list[i].is_push==0?'否':'是' }}</td>
+										<td nowrap="nowrap">
+											<a href="/html-article-edit.html?id={{ d.list[i].info_id }}" class="J_menuItem"><i class="fa fa-edit"></i>编辑</a> | 
+											{{# if(d.list[i].is_audit==0){ }}
+											<a href="javascript:;" class="publish" data-id="{{ d.list[i].info_id }}"><i class="fa fa-send"></i>发布</a> | 
+											{{# }else{ }}
+											<a href="javascript:;" class="unpublish" data-id="{{ d.list[i].info_id }}"><i class="fa fa-mail-reply"></i>取消发布</a> | 
+											{{# } }}
+											<a href="javascript:;" class="danger delete" data-id="{{ d.list[i].info_id }}"><i class="fa fa-close"></i>删除</a>
+										</td>
+									</tr>
+								{{# } }}
+							</script>
+						</table>
+						<div class="button-box">
+							<button type="button" class="btn btn-primary multiple-publish"><i class="fa fa-send"></i> 发布</button>
+							<button type="button" class="btn btn-primary multiple-unpublish"><i class="fa fa-mail-reply-all"></i> 取消发布</button>
+							<button type="button" class="btn btn-danger multiple-delete"><i class="fa fa-close"></i>删除</button>
+							<div class="page f_r" id="page"></div>
+							<div class="f_r count" id="count"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function () {
+			getBrandList();
+			$(".search").on("click", function () {
+				setParam();
+			});
+			$("input[name='keywords']").on("keypress", function (e) {
+				if(e.keyCode == 13) {
+					setParam();
+				}
+			});
+			$("#search-btn").on("click", function () {
+				setParam();
+			});
+			setParam();
+			// 单个删除
+			$("table").on("click", ".delete", function () {
+				var id = $(this).data("id");
+				var param = {info_id: id};
+				$.deleteNode("Content/delete", param, '确定要删除此条资讯吗？', function (data) {
+					if(data.status == 1){
+						layer.alert(data.msg);
+						setTimeout(function () {
+							setParam();
+						}, 800);
+					} else {
+						layer.alert(data.msg);
+						return false;
+					}
+				});
+			});
+			// 多个删除
+			$(".multiple-delete").on("click", function () {
+				var ids = [];
+				$("input[name='checkbox']:checked").each(function(){
+			    	ids.push($(this).val());
+		    	});
+		    	var id = ids.join(",");
+		    	if(id.length <= 0){
+		    		layer.alert("请选择文章！");
+		    		return false;
+		    	}
+		    	var param = {info_id: id};
+				$.deleteNode("Content/delete", param, '确定要删除所选资讯吗？', function (data) {
+					if(data.status == 1){
+						layer.alert(data.msg);
+						setTimeout(function () {
+							setParam();
+						}, 800);
+					} else {
+						layer.alert(data.msg);
+						return false;
+					}
+				});
+			});
+
+			// 单个发布
+			$("table").on("click", ".publish", function () {
+				var id = $(this).data("id");
+				var param = {info_id: id};
+				$.publishArticle("Content/release", param, function (data) {
+					if(data.status == 1){
+						layer.alert(data.msg);
+						setTimeout(function () {
+							setParam();
+						}, 800);
+					} else {
+						layer.alert(data.msg);
+						return false
+					}
+				});
+			});
+			// 批量发布
+			$(".multiple-publish").on("click", function () {
+				var ids = [];
+				$("input[name='checkbox']:checked").each(function(){
+			    	ids.push($(this).val());
+		    	});
+		    	var id = ids.join(",");
+		    	if(id.length <= 0){
+		    		layer.alert("请选择文章！");
+		    		return false;
+		    	}
+
+		    	var param = {info_id: id};
+				$.publishArticle("Content/release", param, function (data) {
+					if(data.status == 1){
+						layer.alert(data.msg);
+						setTimeout(function () {
+							setParam();
+						}, 800);
+					} else {
+						layer.alert(data.msg);
+						return false
+					}
+				});
+			});
+
+			// 单个取消发布
+			$("table").on("click", ".unpublish", function () {
+				var id = $(this).data("id");
+				var param = {info_id: id};
+				$.unpublishArticle("Content/cancel", param, function (data) {
+					if(data.status == 1){
+						layer.alert(data.msg);
+						setTimeout(function () {
+							setParam();
+						}, 800);
+					} else {
+						layer.alert(data.msg);
+						return false
+					}
+				});
+			});
+			// 批量 取消发布
+			$(".multiple-unpublish").on("click", function () {
+				var ids = [];
+				$("input[name='checkbox']:checked").each(function(){
+			    	ids.push($(this).val());
+		    	});
+		    	var id = ids.join(",");
+		    	if(id.length <= 0){
+		    		layer.alert("请选择文章！");
+		    		return false;
+		    	}
+
+		    	var param = {info_id: id};
+				$.unpublishArticle("Content/cancel", param, function (data) {
+					if(data.status == 1){
+						layer.alert(data.msg);
+						setTimeout(function () {
+							setParam();
+						}, 800);
+					} else {
+						layer.alert(data.msg);
+						return false
+					}
+				});
+			});
+
+		});
+
+		var cate_id = $.getQueryString("cate_id");
+		var param = {token: $.ROOT.getItem("token"), type: 0};
+		if(cate_id){
+			param['cate_id'] = cate_id;
+			$("input[name='cate_id']").val(cate_id);
+		}
+		function setParam () {
+			var title = $("input[name='keywords']").val() || '';
+			var userType = $("select[name='userType']").val();
+			var isAudit = $("select[name='isAudit']").val();
+			var cate_id = $("input[name='cate_id']").val();
+			param['title'] = title;
+			param['user_type'] = userType;
+			param['is_audit'] = isAudit;
+			param['cate_id'] = cate_id;
+			return renderingPage();
+		}
+
+		function renderingPage(page){
+			param['page'] = page || 1;
+			$.ROOT.request("Content/index", param, function (data) {
+				if($("#checkAll").prop("checked")){
+					$("#checkAll").attr("checked", false);
+				}
+				if(data.status == 1){
+					if(data.count > 0){
+						$(".button-box").show();
+						$("#checkAll").show();
+						var pageNum = Math.ceil(data.count/10);
+						$("#count").html("共"+data.count+"条，"+param['page']+"/"+pageNum+"页");
+				        //显示分页
+				        laypage({
+				            cont: 'page', //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
+				            pages: pageNum, //通过后台拿到的总页数
+				            curr: page || 1, //当前页
+				            skip: true, //是否开启跳页
+				            jump: function(obj, first){ //触发分页后的回调
+				                if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+				                    renderingPage(obj.curr);
+				                }
+				            }
+				        });
+				        var gettpl = document.getElementById('artList').innerHTML;
+						laytpl(gettpl).render(data, function(html){
+						    document.getElementById('listBox').innerHTML = html;
+						});
+					} else {
+						$(".button-box").hide();
+						$("#checkAll").hide();
+						$("#listBox").html('<tr><td colspan="11" align="center">暂无数据</td></tr>');
+					}
+				} else {
+					layer.alert(data.msg);
+					return false;
+				}
+			});
+		};
+		function getBrandList (defVal) {
+			var param = {token: $.ROOT.getItem("token")}
+			$.ROOT.request("Category/index", param, function (data) {
+				if(data.status == 1) {
+					var newData = dataToSelectData(data.list);
+					var _defVal = defVal || [];
+					var opts = {
+				        data: newData,
+				        head: "请选择...",
+				        selStyle: 'margin-left: 3px;',
+				        select: '#brandLinkSelect',
+				        selClass: 'form-control',
+				        defVal: _defVal
+				    };
+				    var linkageSel = new LinkageSel(opts);
+					
+				    linkageSel.onChange(function(){
+				        var v = this.getSelectedValue();
+				        $("input[name='cate_id']").val(v);
+				    });
+				}
+			});
+		}
+
+		function dataToSelectData(data) {
+			var newData = {};
+			for(var i = 0; i < data.length; i++){
+				newData[data[i].cate_id] = {
+					name: data[i].title
+				};
+				if(data[i].list.length > 0)
+					newData[data[i].cate_id].cell = dataToSelectData(data[i].list)
+			}
+			return newData;
+		}
+	</script>
+<script src="/statics/js/plugins/layer/layer.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<title>微校邦-资讯管理</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="/statics/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+	<link href="/statics/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+	<link href="/statics/css/animate.min.css" rel="stylesheet">
+	<link href="/statics/css/style.min.css?v=4.0.0" rel="stylesheet">
+	<link href="/statics/css/custom.css" rel="stylesheet">
+
+	<script src="/statics/js/jquery.min.js?v=2.1.4"></script>
+	<script src="/statics/js/common.js"></script>
+</head>
+
+<body class="gray-bg">
+	<div class="wrapper wrapper-content article">
+		<div class="row form-body form-horizontal m-t">
+			<div class="col-md-12">
+				<div class="ibox">
+					<div class="ibox-title"><b>添加文章</b></div>
+					<div class="ibox-content">
+						<div class="form-group">
+							<label class="col-sm-2 control-label"><span class="required">*</span>文章标题：</label>
+							<div class="col-sm-9">
+								<input type="text" name="title" class="form-control" placeholder="请输入文章标题">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label"><span class="required">*</span>是否推送：</label>
+							<div class="col-sm-9">
+								<div class="f_l">
+									<label><input type="radio" name="is_push" checked value="0">否</label>
+								</div>
+								<div class="f_l">
+									<label><input type="radio" name="is_push" value="1">是</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label"><span class="required">*</span>发送对象：</label>
+							<div class="col-sm-9">
+								<div class="f_l">
+		                            <label><input type="radio" name="send-object" checked value="0">全部</label>
+		                        </div>
+		                        <div class="f_l">
+		                            <label><input type="radio" name="send-object" value="1">教师</label>
+		                        </div>
+		                        <div class="f_l">
+		                            <label><input type="radio" name="send-object" value="2">学生</label>
+		                        </div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">自定义属性：</label>
+							<div class="col-sm-9">
+								<div class="f_l">
+		                            <label><input type="checkbox" name="firsttitle">头条</label>
+		                        </div>
+								<div class="f_l">
+		                            <label><input type="checkbox" name="istop">置顶</label>
+		                        </div>
+		                        <div class="f_l">
+		                            <label><input type="checkbox" name="isimg">图片</label>
+		                        </div>
+		                        <div class="f_l">
+		                            <label><input type="checkbox" name="isslide">幻灯</label>
+		                        </div>
+		                        <div class="f_l">
+		                            <label><input type="checkbox" name="isgood">推荐</label>
+		                        </div>
+		                        <div class="f_l">
+		                            <label><input type="checkbox" name="isscroll">滚动</label>
+		                        </div>
+		                        <div class="f_l">
+		                            <label><input type="checkbox" name="isjump">跳转</label>
+		                        </div>
+							</div>
+						</div>
+		                <div class="form-group jump-url" style="display:none;">
+							<label class="col-sm-2 control-label"><span class="required">*</span>跳转链接：</label>
+							<div class="col-sm-6">
+								<input type="text" class=" form-control" placeholder="请输入跳转链接">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">TAG标签：</label>
+							<div class="col-sm-6">
+								<input type="text" name="tags" class="form-control">
+							</div>
+							<div class="col-sm-4 tip">
+								（“，号”隔开，单个标签小于12字节）
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">权重：</label>
+							<div class="col-sm-2">
+								<input type="text" name="weight" class="form-control">
+							</div>
+							<div class="col-sm-3 tip">
+								（数值越大越靠前）
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label"><span class="required">*</span>封面图片：</label>
+							<div class="col-sm-10">
+								<div class="file_box">
+									<input type="text" name="image" class="txt" readonly="">
+		                            <span class="file_btn btn btn-primary" style="vertical-align: bottom;">
+										<input type="file" id="fileToUpload" name="fileToUpload" onchange="changeVal(this)" value="选择图片">
+										<!-- <span class="btn">上传文件</span> -->
+										选择图片
+									</span>
+									<button id="buttonUpload" class="btn btn-primary" style="vertical-align: bottom;">上传</button>
+									<input type="hidden" readonly="" name="info[bg_img]" style="width: 70%;">
+									<span class="tip">
+										（图片宽高比例1:1，支持jpg、jpeg、png、gif格式）
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">文章来源：</label>
+							<div class="col-sm-4">
+								<input type="text" name="from" class="form-control" placeholder="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">作者：</label>
+							<div class="col-sm-4">
+								<input type="text" name="author" class="form-control" placeholder="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label"><span class="required">*</span>文章主栏目：</label>
+							<div class="col-sm-9">
+								<select name="" id="brandLinkSelect" class="form-control"></select>
+								<input type="hidden" name="cate_id" value="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">关键字：</label>
+							<div class="col-sm-7">
+								<input type="text" name="keywords" class="form-control" placeholder="">
+							</div>
+							<div class="col-sm-3 tip">
+								(不同关键字间使用‘,’分隔)
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label"><span class="required">*</span>内容摘要：</label>
+							<div class="col-sm-9">
+								<textarea name="desc" id="" cols="30" rows="7" class="form-control" maxlength="200"></textarea>
+								<span class="help-block m-b-none">0/150</span>
+							</div>
+						</div>
+						<div class="form-group art-content">
+							<label class="col-sm-2 control-label"><span class="required">*</span>文章内容：</label>
+							<div class="col-sm-9">
+								<div class="tips">支持上传jpg、jpeg、png、gif格式，最大2M</div>
+								<!-- <textarea name="content" id="editBox" style="width: 100%; height: 400px;"></textarea> -->
+								<script id="editBox" type="text/plain" style="width: 100%; height: 400px;"></script>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label"></label>
+							<div class="col-sm-9">
+								<button class="btn btn-primary" type="submit" id="save">保 存</button>
+								<button class="btn btn-white" type="cancel" id="reload">重 置</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script src="/statics/js/plugins/layer/layer.min.js"></script>
+	<script src="/statics/js/bootstrap.min.js?v=3.3.5"></script>
+    <!--<link rel="stylesheet" href="/statics/js/plugins/kindeditor/themes/default/default.css">
+	<script src="/statics/js/plugins/kindeditor/kindeditor-min.js"></script>
+    <script src="/statics/js/plugins/kindeditor/lang/zh_CN.js"></script>-->
+
+    <script src="/statics/js/plugins/ueditor/ueditor.config.js"></script>
+    <script src="/statics/js/plugins/ueditor/ueditor.all.js"> </script>
+    <script src="/statics/js/plugins/ueditor/ueditor.extend.js"> </script>
+	<script src="/statics/js/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+	<script src="/statics/js/jquery.linkagesel.js"></script>
+	<script src="/statics/js/article/add.js"></script>
+	<script src="/statics/js/ajaxfileupload.js"></script>
+</body>
+</html>

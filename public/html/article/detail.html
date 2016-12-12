@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<title>微校邦-资讯管理</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<link href="/statics/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+	<link href="/statics/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+	<link href="/statics/css/animate.min.css" rel="stylesheet">
+	<link href="/statics/css/style.min.css?v=4.0.0" rel="stylesheet">
+	<link href="/statics/css/custom.css" rel="stylesheet">
+	<style>
+		ul,ol,li {list-style: inherit;padding-left: 15px;}
+	</style>
+
+	<script src="/statics/js/jquery.min.js?v=2.1.4"></script>
+	<script src="/statics/js/common.js"></script>
+	<script src="/statics/js/plugins/layer/laytpl/laytpl.js"></script>
+	<script src="/statics/js/plugins/layer/laypage/laypage.js"></script>
+</head>
+
+<body class="gray-bg">
+	<div class="wrapper wrapper-content  animated fadeInRight article">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1">
+				<div class="ibox">
+					<div class="ibox-content">
+						<div id="contentBox">
+							
+						</div>
+						<script type="html/text" id="tplContentBox">
+							<div class="article-title">
+								<h2 class="text-center">
+									{{ d.info.title }}
+								</h2>
+								<h2></h2>
+								<h3 class="text-center">
+									<span>{{ $.getLocalTime(d.info.create_time, true) }}</span>　　
+									<span>赞({{ d.info.like_count }})</span>　　
+									<span>评论({{ d.info.comment_count }})</span>
+								</h3>
+								<div class="abstract">
+									<b>摘要：</b>{{ d.info.desc }}
+								</div>
+								<div>
+									{{ d.info.content }}
+								</div>
+							</div>
+						</script>
+						<hr>
+						<div id="commentBox">
+							
+						</div>
+						<script type="html/text" id="tplCommentBox">
+							<div class="row">
+								<div class="col-lg-12">
+
+									<h2>评论：</h2>
+									{{# for(var i = 0; i < d.length; i++){ }}
+									<div class="social-feed-box">
+										<div class="social-avatar">
+											<a href="javascript:;" class="pull-left">
+												<img alt="image" src="{{ d[i].photo_url }}">
+											</a>
+											<div class="media-body">
+												<a href="javascript:;">
+													{{ d[i].true_name }}
+												</a>
+												<small class="text-muted">{{ d[i].create_time }}</small>
+												<small class="text-muted">赞(<b>{{ d[i].like_count }}</b>)</small>
+												<small class="text-muted">楼层(<b>{{ d[i].storey }}</b>)</small>
+												<small class="text-muted">回复(<b>{{ d[i].comment_count }}</b>)</small>
+												<small class="text-muted f_r delete" data-id="{{ d[i].comment_id }}"><i class="fa fa-close"></i>删除</small>
+											</div>
+										</div>
+										<div class="social-body">
+											{{# if(d[i].be_comment){ }}
+											<div class="quote">
+												<p>
+													<b>回复 @<a href="javascript:;">{{ d[i].be_comment.true_name }}</a> 发表的：</b>
+												</p>
+												<p>
+													{{ d[i].be_comment.content }}
+												</p>
+											</div>
+											{{# } }}
+											<p>
+												{{ d[i].content }}
+											</p>
+										</div>
+									</div>
+									{{# } }}
+								</div>
+							</div>
+						</script>
+						<div style="padding: 15px; overflow:hidden;">
+							<div class="page f_r" id="page"></div>
+							<div class="f_r count" id="count"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var id = $.getQueryString("id");
+		
+		getInfo();
+		renderingPage();
+
+		$("#commentBox").on("click", ".delete", function () {
+			var _this = $(this);
+			var l = layer.confirm("确定删除此条评论？",{
+				btn: ["确定", "取消"]
+			}, function () {
+				layer.close(l);
+				var load = layer.load(1,{
+					shade: [0.5, "#000"]
+				});
+				var id = _this.data("id");
+				var param = {token: $.ROOT.getItem("token"), comment_id: id};
+				$.ROOT.request("Comment/delete", param, function (data) {
+					layer.close(load);
+					if(data.status == 1){
+						renderingPage(p);
+						layer.msg(data.msg,{
+							time: 800
+						});
+					} else {
+						layer.msg(data.msg,{
+							time: 2000
+						});
+					}
+				});
+			}, function () {
+
+			});
+		});
+		function getInfo () {
+			var param = {token: $.ROOT.getItem("token"), info_id: id};
+			$.ROOT.request("Content/getInfo", param, function (data) {
+				if(data.status == 1){
+					var gettpl = document.getElementById('tplContentBox').innerHTML;
+					laytpl(gettpl).render(data, function(html){
+					    document.getElementById('contentBox').innerHTML = html;
+					});
+				}
+			});
+		}
+		var p = 1;
+		function renderingPage(page){
+			var param = {token: $.ROOT.getItem("token"), info_id: id};
+			param['page'] = page || 1;
+			$.ROOT.request("Comment/list", param, function (data) {
+				if(data.status == 1){
+					if(data.count > 0){
+						var pageNum = Math.ceil(data.count/10);
+						$("#count").html("共"+pageNum+"页，"+data.count+"条");
+				        //显示分页
+				        laypage({
+				            cont: 'page', //容器。值支持id名、原生dom对象，jquery对象。【如该容器为】：<div id="page1"></div>
+				            pages: pageNum, //通过后台拿到的总页数
+				            curr: page || 1, //当前页
+				            skip: true, //是否开启跳页
+				            jump: function(obj, first){ //触发分页后的回调
+				                if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+				                	p = obj.curr;
+				                    renderingPage(obj.curr);
+				                }
+				            }
+				        });
+				        var gettpl = document.getElementById('tplCommentBox').innerHTML;
+						laytpl(gettpl).render(data.list, function(html){
+						    document.getElementById('commentBox').innerHTML = html;
+						});
+					}
+				} else {
+					layer.alert(data.msg);
+					return false;
+				}
+			});
+		};
+	</script>
+	<script src="/statics/js/echo.min.js"></script>
+	<script>
+		echo.init({
+			offset: 200,
+			throttle: 0
+		});
+	</script>
+<script src="/statics/js/plugins/layer/layer.min.js"></script>
+</body>
+
+</html>
